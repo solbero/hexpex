@@ -3,20 +3,18 @@ from typing import TypeVar
 
 import pytest
 
-from hexpex.hex import (
-    Axial,
-    Cube,
-    Move,
-    CubeFlatAdjacentDirection as CubeAdjacentDirection,
-    CubeFlatDiagonalDirection as CubeDiagonalDirection,
-    AxialFlatAdjacentDirection as AxialAdjacentDirection,
-    AxialFlatDiagonalDirection as AxialDiagonalDirection,
-)
+from hexpex.hex import Axial
+from hexpex.hex import AxialFlatAdjacentDirection as AxialAdjacentDirection
+from hexpex.hex import AxialFlatDiagonalDirection as AxialDiagonalDirection
+from hexpex.hex import Cube
+from hexpex.hex import CubeFlatAdjacentDirection as CubeAdjacentDirection
+from hexpex.hex import CubeFlatDiagonalDirection as CubeDiagonalDirection
+from hexpex.hex import Move
 
 T = TypeVar("T")
 
 
-@pytest.fixture
+@pytest.fixture()
 def cube_ring():
     return [
         Cube(1, 0, -1),
@@ -28,7 +26,7 @@ def cube_ring():
     ]
 
 
-@pytest.fixture
+@pytest.fixture()
 def axial_ring():
     return [
         Axial(1, 0),
@@ -48,7 +46,7 @@ def reverse_ring(ring: Sequence[T]) -> list[T]:
     return reversed_ring
 
 
-@pytest.fixture
+@pytest.fixture()
 def cube_spiral(cube_ring):
     spiral = []
     spiral.append(Cube(0, 0, 0))
@@ -56,7 +54,7 @@ def cube_spiral(cube_ring):
     return spiral
 
 
-@pytest.fixture
+@pytest.fixture()
 def axial_spiral(axial_ring):
     spiral = []
     spiral.append(Axial(0, 0))
@@ -64,7 +62,7 @@ def axial_spiral(axial_ring):
     return spiral
 
 
-@pytest.fixture
+@pytest.fixture()
 def cube_spiral_reversed(cube_ring):
     reversed_spiral = []
     reversed_spiral.append(Cube(0, 0, 0))
@@ -72,7 +70,7 @@ def cube_spiral_reversed(cube_ring):
     return reversed_spiral
 
 
-@pytest.fixture
+@pytest.fixture()
 def axial_spiral_reversed(axial_ring):
     reversed_spiral = []
     reversed_spiral.append(Axial(0, 0))
@@ -102,10 +100,9 @@ class TestHex:
         assert hash(hex) == expected
 
     def test_cube_raises_validation(self):
-        with pytest.raises(ValueError) as exc_info:
+        match = r"attributes 'q', 'r', 's' must have a sum of 0, not \d+$"
+        with pytest.raises(ValueError, match=match):
             _ = Cube(1, 0, 1)
-        error_message = str(exc_info.value)
-        assert error_message == "attributes 'q', 'r', 's' must have a sum of 0, not 2"
 
 
 class TestHexOperators:
@@ -120,7 +117,7 @@ class TestHexOperators:
         assert hex1 == hex2
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Cube(0, 0, 0), Cube(1, 0, -1)),
             (Cube(0, 0, 0), 1),
@@ -130,7 +127,7 @@ class TestHexOperators:
         assert hex1 != hex2
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Axial(0, 0), Axial(1, 0)),
             (Axial(0, 0), 1),
@@ -140,7 +137,7 @@ class TestHexOperators:
         assert hex1 != hex2
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Cube(0, 1, -1), Cube(0, -1, 1)),
             (Cube(0, 1, -1), Axial(0, -1)),
@@ -151,7 +148,7 @@ class TestHexOperators:
         assert hex1 + hex2 == expected
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Axial(0, 1), Axial(0, -1)),
             (Axial(0, 1), Cube(0, -1, 1)),
@@ -162,7 +159,7 @@ class TestHexOperators:
         assert hex1 + hex2 == expected
 
     @pytest.mark.parametrize(
-        ["hex2", "expected"],
+        ("hex2", "expected"),
         [
             ("1, 0, -1", TypeError),
             ((1, 0, -1), TypeError),
@@ -174,7 +171,7 @@ class TestHexOperators:
             _ = hex1 + hex2
 
     @pytest.mark.parametrize(
-        ["hex2", "expected"],
+        ("hex2", "expected"),
         [
             ("1, 0", TypeError),
             ((1, 0), TypeError),
@@ -186,7 +183,7 @@ class TestHexOperators:
             _ = hex1 + hex2
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Cube(0, 1, -1), Cube(0, 1, -1)),
             (Cube(0, 1, -1), Axial(0, 1)),
@@ -197,7 +194,7 @@ class TestHexOperators:
         assert hex1 - hex2 == expected
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2"],
+        ("hex1", "hex2"),
         [
             (Axial(0, 1), Axial(0, 1)),
             (Axial(0, 1), Cube(0, 1, -1)),
@@ -208,7 +205,7 @@ class TestHexOperators:
         assert hex1 - hex2 == expected
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2", "expected"],
+        ("hex1", "hex2", "expected"),
         [
             (Cube(1, 0, -1), "1, 0, -1", TypeError),
             (Cube(1, 0, -1), (1, 0, -1), TypeError),
@@ -219,7 +216,7 @@ class TestHexOperators:
             _ = hex1 - hex2
 
     @pytest.mark.parametrize(
-        ["hex1", "hex2", "expected"],
+        ("hex1", "hex2", "expected"),
         [
             (Axial(1, 0), "1, 0", TypeError),
             (Axial(1, 0), (1, 0), TypeError),
@@ -230,7 +227,7 @@ class TestHexOperators:
             _ = hex1 - hex2
 
     @pytest.mark.parametrize(
-        ["factor1", "factor2"],
+        ("factor1", "factor2"),
         [
             (Cube(1, 0, -1), 2),
             (2, Cube(1, 0, -1)),
@@ -241,7 +238,7 @@ class TestHexOperators:
         assert factor1 * factor2 == expected
 
     @pytest.mark.parametrize(
-        ["factor1", "factor2"],
+        ("factor1", "factor2"),
         [
             (Axial(1, 0), 2),
             (2, Axial(1, 0)),
@@ -252,7 +249,7 @@ class TestHexOperators:
         assert factor1 * factor2 == expected
 
     @pytest.mark.parametrize(
-        ["factor1", "factor2", "exception"],
+        ("factor1", "factor2", "exception"),
         [
             (Cube(0, 1, -1), 2.5, TypeError),
             (2.5, Cube(0, 1, -1), TypeError),
@@ -263,7 +260,7 @@ class TestHexOperators:
             _ = factor1 * factor2
 
     @pytest.mark.parametrize(
-        ["factor1", "factor2", "exception"],
+        ("factor1", "factor2", "exception"),
         [
             (Axial(0, 1), 2.5, TypeError),
             (2.5, Axial(0, 1), TypeError),
@@ -274,7 +271,7 @@ class TestHexOperators:
             _ = factor1 * factor2
 
     @pytest.mark.parametrize(
-        ["hex", "divisor", "expected"],
+        ("hex", "divisor", "expected"),
         [
             (Cube(0, -2, 2), 2, Cube(0, -1, 1)),
             (Cube(0, -1, 1), 2, Cube(0, 0, 0)),
@@ -284,7 +281,7 @@ class TestHexOperators:
         assert hex // divisor == expected
 
     @pytest.mark.parametrize(
-        ["hex", "divisor", "expected"],
+        ("hex", "divisor", "expected"),
         [
             (Axial(0, -2), 2, Axial(0, -1)),
             (Axial(0, -1), 2, Axial(0, 0)),
@@ -318,10 +315,10 @@ class TestHexOperators:
 
 class TestNeighbors:
     @pytest.mark.parametrize(
-        ["direction"],
+        ("direction"),
         [
-            (CubeAdjacentDirection.SE,),
-            (Cube(1, 0, -1),),
+            (CubeAdjacentDirection.SE),
+            (Cube(1, 0, -1)),
         ],
     )
     def test_cube_adjacent(self, direction):
@@ -331,10 +328,10 @@ class TestNeighbors:
         assert adjacent == expected
 
     @pytest.mark.parametrize(
-        ["direction"],
+        ("direction"),
         [
-            (AxialAdjacentDirection.SE,),
-            (Axial(1, 0),),
+            (AxialAdjacentDirection.SE),
+            (Axial(1, 0)),
         ],
     )
     def test_axial_adjacent(self, direction):
@@ -344,10 +341,10 @@ class TestNeighbors:
         assert adjacent == expected
 
     @pytest.mark.parametrize(
-        ["direction"],
+        ("direction"),
         [
-            (CubeDiagonalDirection.E,),
-            (Cube(2, -1, -1),),
+            (CubeDiagonalDirection.E),
+            (Cube(2, -1, -1)),
         ],
     )
     def test_cube_diagonal(self, direction):
@@ -357,10 +354,10 @@ class TestNeighbors:
         assert diagonal == expected
 
     @pytest.mark.parametrize(
-        ["direction"],
+        ("direction"),
         [
-            (AxialDiagonalDirection.E,),
-            (Axial(2, -1),),
+            (AxialDiagonalDirection.E),
+            (Axial(2, -1)),
         ],
     )
     def test_axial_diagonal(self, direction):

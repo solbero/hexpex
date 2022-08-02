@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod, abstractproperty
 from collections import deque
-from collections.abc import Iterator, Iterable
+from collections.abc import Iterable, Iterator
 from enum import Enum
 from typing import Any, TypeVar, Union, cast
 
@@ -131,8 +131,8 @@ class _Hex(ABC):
         """
         hexes_in_range = set()
         hexes_in_range.add(self)
-        for distance in range(1, distance + 1):
-            hexes_in_range.update(self.ring(distance))
+        for radius in range(1, distance + 1):
+            hexes_in_range.update(self.ring(radius))
         return hexes_in_range
 
     def spiral(self: T, distance: int, direction: AdjacentDirection, move: Move = Move.CLOCKWISE) -> Iterator[T]:
@@ -141,7 +141,7 @@ class _Hex(ABC):
         Args:
             distance: Max distance to spiral out from self position.
             direction: Direction from self position to first position in the spiral.
-            move (optional): Direction to move around the spiral.
+            move: Direction to move around the spiral.
 
         Yields:
             Hex position in the spiral.
@@ -162,7 +162,7 @@ class _Hex(ABC):
 
         yield self
         for direction_vector in adjacent_vectors:
-            for distance in range(1, distance + 1):
+            for _ in range(1, distance + 1):
                 yield position
                 position = position.adjacent(direction_vector)
 
