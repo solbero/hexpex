@@ -50,8 +50,6 @@
       <a href="#contact">Contact</a>
       <br>
       <a href="#project-links">Project Links</a>
-      </br>
-      <a href="#acknowledgments">Acknowledgments</a>
     </p>
   </details>
 </div>
@@ -284,13 +282,5 @@ See [`LICENSE.txt`](https://github.com/solbero/hexpex/blob/master/LICENSE.txt) f
 
 * Github: [https://github.com/solbero/hexpex](https://github.com/solbero/hexpex)
 * PyPI: [https://pypi.org/project/hexpex/](https://pypi.org/project/hexpex/)
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* [KeeganW's](https://github.com/KeeganW) [TI4 Generator](https://github.com/KeeganW/ti4) for tile, map and faction data
-* [dotlogx](https://github.com/dotlogix) for tile scans
 
 <p align="right">(<a href="#hexpex">back to top</a>)</p>
