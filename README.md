@@ -8,8 +8,8 @@
 
 <!-- PROJECT SHIELDS -->
 <div align="center">
-  <a href="https://github.com/solbero/hexpex/actions/workflows/ci.yaml/" target="_blank">
-    <img src="https://github.com/solbero/hexpex/actions/workflows/ci.yaml/badge.svg?branch=main&event=push" alt="CI build">
+  <a href="https://github.com/solbero/hexpex/actions/workflows/build.yaml/" target="_blank">
+    <img src="https://github.com/solbero/hexpex/actions/workflows/build.yaml/badge.svg?branch=main&event=push" alt="Build checks">
   </a>
   <a href="https://app.codecov.io/gh/solbero/hexpex" target="_blank">
     <img src="https://img.shields.io/codecov/c/github/solbero/hexpex" alt="Code coverage">
