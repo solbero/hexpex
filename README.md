@@ -9,7 +9,10 @@
 <!-- PROJECT SHIELDS -->
 <div align="center">
   <a href="https://github.com/solbero/hexpex/actions/workflows/build.yaml/" target="_blank">
-    <img src="https://github.com/solbero/hexpex/actions/workflows/build.yaml/badge.svg?branch=main&event=push" alt="Build checks">
+    <img src="https://img.shields.io/github/workflow/status/solbero/hexpex/Build?label=build" alt="Build action">
+  </a>
+  <a href="https://github.com/solbero/hexpex/actions/workflows/publish.yaml/" target="_blank">
+    <img src="https://img.shields.io/github/workflow/status/solbero/hexpex/Publish?label=publish" alt="Publish action">
   </a>
   <a href="https://app.codecov.io/gh/solbero/hexpex" target="_blank">
     <img src="https://img.shields.io/codecov/c/github/solbero/hexpex" alt="Code coverage">
