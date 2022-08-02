@@ -1,0 +1,60 @@
+default_language_version:
+  python: python3.9
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.37.3
+    hooks:
+      - id: pyupgrade # Upgrade syntax
+        args: ["--py39-plus"]
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.1.1
+    hooks:
+      - id: pycln # Remove unused imports
+        args: ["--config=pyproject.toml"]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort # Sort imports
+        name: isort
+
+  - repo: https://github.com/psf/black
+    rev: 22.6.0
+    hooks:
+      - id: black # Format code
+        args: ["--config=pyproject.toml"]
+
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+    - id: flake8
+      additional_dependencies:
+        [
+          flake8-bugbear, # Check for code bugs
+          flake8-eradicate, # Remove commented out code
+          flake8-pytest-style, # Checks pytest style
+          flake8-annotations-complexity, # Checks annotation complexity
+        ]
+
+  - repo: https://github.com/terrencepreilly/darglint
+    rev: v1.8.1
+    hooks:
+      - id: darglint # Check docstrings
+
+  - repo:  https://github.com/PyCQA/bandit
+    rev: 1.7.4
+    hooks:
+    - id: bandit # Check for security vulnerabilities
+      args: ["-c", "pyproject.toml"]
+      additional_dependencies: ["bandit[toml]"]

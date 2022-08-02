@@ -27,3 +27,15 @@ testpaths = "tests"
 [tool.black]
 line-length = 120
 target-version = ["py39"]
+
+[tool.coverage.run]
+source = [".hexpex", ".tox/*/site-packages"]
+
+[tool.isort]
+profile = "black"
+
+[tool.pycln]
+all = true
+
+[tool.bandit]
+skips = ["B101"]

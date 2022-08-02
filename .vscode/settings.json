@@ -7,4 +7,7 @@
     "cSpell.words": [
         "hexpex"
     ],
+    "yaml.schemas": {
+        "https://json.schemastore.org/pre-commit-config.json": "file:///home/njord/Development/hexpex/.pre-commit-config.yaml"
+    }
 }
