@@ -11,6 +11,9 @@
   <a href="https://github.com/solbero/hexpex/actions/workflows/ci.yaml/" target="_blank">
     <img src="https://github.com/solbero/hexpex/actions/workflows/ci.yaml/badge.svg?branch=main&event=push" alt="CI build">
   </a>
+  <a href="https://app.codecov.io/gh/solbero/hexpex" target="_blank">
+    <img src="https://img.shields.io/codecov/c/github/solbero/hexpex" alt="Code coverage">
+  </a>
   <a href="https://pypi.org/project/hexpex/" target="_blank">
     <img src="https://img.shields.io/pypi/v/hexpex" alt="Package version">
   </a>
