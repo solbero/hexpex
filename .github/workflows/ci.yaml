@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,3 +26,8 @@ jobs:
         python -m pip install tox tox-gh-actions
     - name: Test with tox
       run: tox
+    - name: Upload coverage to Codecov
+      if: "matrix.python-version == '3.9'"
+      uses: codecov/codecov-action@v3
+      with:
+        fail_ci_if_error: true
