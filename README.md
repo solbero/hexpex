@@ -188,8 +188,10 @@ cube.diagonal(DiagonalDirection.E)
 
 ### Conversion
 
-A cube object can be converted to an axial object using the `convert_to_axial()` method.
-The reverse is true for an axial object using the `convert_to_cube()` method.
+A cube object can be converted to an axial object using the `to_axial()` method.
+The reverse is true for an axial object using the `to_cube()` method.
+
+Both representations can also be converted to a tuple using the `to_tuple()` method and to a dict using the `to_dict()`method.
 
 ```python
 
@@ -198,10 +200,20 @@ from hexpex import Axial, Cube
 cube = Cube(1, 0, -1)
 axial = Axial(1, 0)
 
-cube.convert_to_axial()
+cube.to_axial()
 #> Axial(1, 0)
-axial.convert_to_cube()
+axial.to_cube()
 #> Cube(1, 0, -1)
+
+cube.to_tuple()
+#> (1, 0, -1)
+axial.to_tuple()
+#> (1, 0)
+
+cube.to_dict()
+#> {"q": 1, "r": 0, "s": -1}
+axial.to_dict()
+#> {"q": 1, "r": 0}
 ```
 
 <p align="right">(<a href="#hexpex">back to top</a>)</p>
