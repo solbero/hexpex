@@ -504,13 +504,13 @@ class TestSpiral:
 class TestHexConversion:
     def test_cube_to_axial(self):
         cube = Cube(1, 0, -1)
-        converted = cube.convert_to_axial()
+        converted = cube.to_axial()
         expected = Axial(1, 0)
         assert converted == expected
 
     def test_axial_to_cube(self):
         axial = Axial(1, 0)
-        converted = axial.convert_to_cube()
+        converted = axial.to_cube()
         expected = Cube(1, 0, -1)
         assert converted == expected
 

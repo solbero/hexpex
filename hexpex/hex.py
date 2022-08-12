@@ -284,7 +284,7 @@ class Axial(_Hex):
     def _rotate_counterclockwise(self) -> Axial:
         return Axial(q=-(-self.q - self.r), r=-self.q)
 
-    def convert_to_cube(self):
+    def to_cube(self):
         """Convert self to cube representation."""
         return Cube(self.q, self.r, -self.q - self.r)
 
@@ -360,7 +360,7 @@ class Cube(_Hex):
     def _rotate_counterclockwise(self) -> Cube:
         return Cube(q=-self.s, r=-self.q, s=-self.r)
 
-    def convert_to_axial(self) -> Axial:
+    def to_axial(self) -> Axial:
         """Convert self to axial representation."""
         return Axial(self.q, self.r)
 
