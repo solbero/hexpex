@@ -1,4 +1,4 @@
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from hexpex.hex import Axial as Axial
 from hexpex.hex import AxialFlatAdjacentDirection as AxialFlatAdjacentDirection
