@@ -514,6 +514,30 @@ class TestHexConversion:
         expected = Cube(1, 0, -1)
         assert converted == expected
 
+    def test_cube_to_tuple(self):
+        cube = Cube(1, 0, -1)
+        converted = cube.to_tuple()
+        expected = (1, 0, -1)
+        assert converted == expected
+
+    def test_axial_to_tuple(self):
+        axial = Axial(1, 0)
+        converted = axial.to_tuple()
+        expected = (1, 0)
+        assert converted == expected
+
+    def test_cube_to_dict(self):
+        cube = Cube(1, 0, -1)
+        converted = cube.to_dict()
+        expected = {"q": 1, "r": 0, "s": -1}
+        assert converted == expected
+
+    def test_axial_to_dict(self):
+        axial = Axial(1, 0)
+        converted = axial.to_dict()
+        expected = {"q": 1, "r": 0}
+        assert converted == expected
+
 
 class TestHexRange:
     def test_cube_range(self, cube_spiral):

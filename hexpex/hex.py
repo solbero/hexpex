@@ -207,6 +207,14 @@ class _Hex(ABC):
             rotated.add(self + vector)
         return rotated
 
+    def to_tuple(self) -> tuple[int, ...]:
+        """Convert self to tuple representation."""
+        return tuple(vars(self).values())
+
+    def to_dict(self) -> dict[str, int]:
+        """Convert self to dict representation."""
+        return vars(self)
+
 
 class Axial(_Hex):
     "An axial representation of a position or vector in a hexagonal grid."
