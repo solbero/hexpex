@@ -140,18 +140,15 @@ class _Hex(ABC):
 
         Args:
             distance: Max distance to spiral out from self position.
-            direction: Direction from self position to first position in the spiral.
+            direction: Direction from self position to first position of each ring in the spiral.
             move: Direction to move around the spiral.
 
         Yields:
             Hex position in the spiral.
         """
 
-        direction_vector = cast(T, direction.value)
-        scaled_vector = direction_vector * distance
-        position = self + scaled_vector
-
         adjacent_vectors = deque(self._adjacent_vectors)
+        direction_vector = cast(T, direction.value)
 
         if move is Move.COUNTERCLOCKWISE:
             adjacent_vectors.reverse()
@@ -161,10 +158,13 @@ class _Hex(ABC):
         adjacent_vectors.rotate(-steps)
 
         yield self
-        for direction_vector in adjacent_vectors:
-            for _ in range(1, distance + 1):
-                yield position
-                position = position.adjacent(direction_vector)
+        for ring in range(1, distance + 1):
+            scaled_vector = direction_vector * ring
+            position = self + scaled_vector
+            for vector in adjacent_vectors:
+                for _ in range(1, ring + 1):
+                    yield position
+                    position = position.adjacent(vector)
 
     @abstractmethod
     def _rotate_clockwise(self: T) -> T:  # pragma: no cover​
