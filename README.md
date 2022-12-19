@@ -9,10 +9,10 @@
 <!-- PROJECT SHIELDS -->
 <div align="center">
   <a href="https://github.com/solbero/hexpex/actions/workflows/build.yaml/" target="_blank">
-    <img src="https://img.shields.io/github/workflow/status/solbero/hexpex/Build?label=build" alt="Build action">
+    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/build.yaml?branch=main&label=build" alt="Build action">
   </a>
   <a href="https://github.com/solbero/hexpex/actions/workflows/publish.yaml/" target="_blank">
-    <img src="https://img.shields.io/github/workflow/status/solbero/hexpex/Publish?label=publish" alt="Publish action">
+    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/publish.yaml?branch=main&label=publish" alt="Publish action">
   </a>
   <a href="https://app.codecov.io/gh/solbero/hexpex" target="_blank">
     <img src="https://img.shields.io/codecov/c/github/solbero/hexpex" alt="Code coverage">
@@ -28,32 +28,6 @@
   </a>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<div align="center">
-  <details>
-    <summary>Table of Contents</summary>
-    <p>
-      <a href="#about-the-project">About the Project</a>
-      <br>
-      <a href="#prerequisites">Prerequisites</a>
-      <br>
-      <a href="#installation">Installation</a>
-      <br>
-      <a href="#usage">Usage</a>
-      <br>
-      <a href="#roadmap">Roadmap</a>
-      <br>
-      <a href="#contributing">Contributing</a>
-      <br>
-      <a href="#license">License</a>
-      <br>
-      <a href="#contact">Contact</a>
-      <br>
-      <a href="#project-links">Project Links</a>
-    </p>
-  </details>
-</div>
-
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
@@ -61,14 +35,10 @@ This is a type-hinted, object-oriented implementation in Python of [hexagonal gr
 This package allows you to easily work with hexagonal grids in Python.
 All of its classes, attributes and methods are type-hinted which allows your editor to autocomplete signatures and catch bugs and mistakes early.
 
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
-
 <!-- PREREQUISITES -->
 ## Prerequisites
 
 Because this package uses type hints, keyword-only and positional-only arguments you must have Python 3.9 or greater installed.
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
 
 <!-- INSTALLATION -->
 
@@ -93,8 +63,6 @@ Because this package uses type hints, keyword-only and positional-only arguments
   cd hexpex
   poetry install
   ```
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -216,8 +184,6 @@ axial.to_dict()
 #> {"q": 1, "r": 0}
 ```
 
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -242,8 +208,6 @@ axial.to_dict()
 * [ ] Pixel to hex
 
 See the [open issues](https://github.com/solbero/hexpex/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -272,27 +236,19 @@ git push origin feature/AmazingFeature
 
 5. Open a pull request
 
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the GPLv3 License.
 See [`LICENSE.txt`](https://github.com/solbero/hexpex/blob/master/LICENSE.txt) for more information.
 
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
-
 <!-- CONTACT -->
 ## Contact
 
 * Email: [njord.solberg@gmail.com](mailto:njord.solberg@gmail.com)
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
 
 <!-- PROJECT LINKS -->
 ## Project Links
 
 * Github: [https://github.com/solbero/hexpex](https://github.com/solbero/hexpex)
 * PyPI: [https://pypi.org/project/hexpex/](https://pypi.org/project/hexpex/)
-
-<p align="right">(<a href="#hexpex">back to top</a>)</p>
