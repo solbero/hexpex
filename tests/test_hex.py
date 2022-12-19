@@ -15,7 +15,7 @@ T = TypeVar("T")
 
 
 @pytest.fixture()
-def cube_ring():
+def cube_ring_1():
     return [
         Cube(1, 0, -1),
         Cube(0, 1, -1),
@@ -27,7 +27,25 @@ def cube_ring():
 
 
 @pytest.fixture()
-def axial_ring():
+def cube_ring_2():
+    return [
+        Cube(2, 0, -2),
+        Cube(1, 1, -2),
+        Cube(0, 2, -2),
+        Cube(-1, 2, -1),
+        Cube(-2, 2, 0),
+        Cube(-2, 1, 1),
+        Cube(-2, 0, 2),
+        Cube(-1, -1, 2),
+        Cube(0, -2, 2),
+        Cube(1, -2, 1),
+        Cube(2, -2, 0),
+        Cube(2, -1, -1),
+    ]
+
+
+@pytest.fixture()
+def axial_ring_1():
     return [
         Axial(1, 0),
         Axial(0, 1),
@@ -35,6 +53,24 @@ def axial_ring():
         Axial(-1, 0),
         Axial(0, -1),
         Axial(1, -1),
+    ]
+
+
+@pytest.fixture()
+def axial_ring_2():
+    return [
+        Axial(2, 0),
+        Axial(1, 1),
+        Axial(0, 2),
+        Axial(-1, 2),
+        Axial(-2, 2),
+        Axial(-2, 1),
+        Axial(-2, 0),
+        Axial(-1, -1),
+        Axial(0, -2),
+        Axial(1, -2),
+        Axial(2, -2),
+        Axial(2, -1),
     ]
 
 
@@ -47,34 +83,36 @@ def reverse_ring(ring: Sequence[T]) -> list[T]:
 
 
 @pytest.fixture()
-def cube_spiral(cube_ring):
+def cube_spiral(cube_ring_1, cube_ring_2):
     spiral = []
     spiral.append(Cube(0, 0, 0))
-    spiral.extend(cube_ring)
+    spiral.extend(cube_ring_1)
+    spiral.extend(cube_ring_2)
     return spiral
 
 
 @pytest.fixture()
-def axial_spiral(axial_ring):
+def axial_spiral(axial_ring_1, axial_ring_2):
     spiral = []
     spiral.append(Axial(0, 0))
-    spiral.extend(axial_ring)
+    spiral.extend(axial_ring_1)
+    spiral.extend(axial_ring_2)
     return spiral
 
 
 @pytest.fixture()
-def cube_spiral_reversed(cube_ring):
+def cube_spiral_reversed(cube_ring_1):
     reversed_spiral = []
     reversed_spiral.append(Cube(0, 0, 0))
-    reversed_spiral.extend(reverse_ring(cube_ring))
+    reversed_spiral.extend(reverse_ring(cube_ring_1))
     return reversed_spiral
 
 
 @pytest.fixture()
-def axial_spiral_reversed(axial_ring):
+def axial_spiral_reversed(axial_ring_1):
     reversed_spiral = []
     reversed_spiral.append(Axial(0, 0))
-    reversed_spiral.extend(reverse_ring(axial_ring))
+    reversed_spiral.extend(reverse_ring(axial_ring_1))
     return reversed_spiral
 
 
@@ -368,18 +406,18 @@ class TestNeighbors:
 
 
 class TestHexRing:
-    def test_cube_ring(self, cube_ring):
+    def test_cube_ring(self, cube_ring_1):
         center = Cube(0, 0, 0)
         radius = 1
         ring = center.ring(radius)
-        expected = set(cube_ring)
+        expected = set(cube_ring_1)
         assert ring == expected
 
-    def test_axial_ring(self, axial_ring):
+    def test_axial_ring(self, axial_ring_1):
         center = Axial(0, 0)
         radius = 1
         ring = center.ring(radius)
-        expected = set(axial_ring)
+        expected = set(axial_ring_1)
         assert ring == expected
 
 
@@ -468,7 +506,7 @@ class TestHexDistance:
 class TestSpiral:
     def test_cube_spiral(self, cube_spiral):
         center = Cube(0, 0, 0)
-        radius = 1
+        radius = 2
         direction = CubeAdjacentDirection.SE
         spiral = list(center.spiral(radius, direction))
         expected = cube_spiral
@@ -476,7 +514,7 @@ class TestSpiral:
 
     def test_axial_spiral(self, axial_spiral):
         center = Axial(0, 0)
-        radius = 1
+        radius = 2
         direction = AxialAdjacentDirection.SE
         spiral = list(center.spiral(radius, direction))
         expected = axial_spiral
@@ -540,16 +578,16 @@ class TestHexConversion:
 
 
 class TestHexRange:
-    def test_cube_range(self, cube_spiral):
+    def test_cube_range(self, cube_ring_1):
         center = Cube(0, 0, 0)
         range = 1
         hexes = center.range(range)
-        expected = set(cube_spiral)
+        expected = set(cube_ring_1) | {center}
         assert hexes == expected
 
-    def test_axial_range(self, axial_spiral):
+    def test_axial_range(self, axial_ring_1):
         center = Axial(0, 0)
         range = 1
         hexes = center.range(range)
-        expected = set(axial_spiral)
+        expected = set(axial_ring_1) | {center}
         assert hexes == expected
