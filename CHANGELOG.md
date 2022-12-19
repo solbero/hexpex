@@ -1,4 +1,11 @@
 
+<a id='changelog-0.2.1'></a>
+# 0.2.1 — 2022-12-19
+
+## Fixed
+
+- Fixed .spiral() method.
+
 <a id='changelog-0.2.0'></a>
 # 0.2.0 — 2022-08-12
 

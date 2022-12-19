@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexpex"
-version = "0.2.0"
+version = "0.2.1"
 description = "A type-hinted, object-oriented Python implementation for working with hex grids"
 authors = ["solbero <njord.solberg@gmail.com>"]
 license = "GPLv3"
