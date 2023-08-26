@@ -22,7 +22,7 @@ jobs:
       - name: Install poetry and dependencies
         uses: abatilo/actions-poetry@v2
         with:
-          poetry-version: "1.1.13"
+          poetry-version: "1.6.1"
 
       - name: Configure Poetry
         env:
