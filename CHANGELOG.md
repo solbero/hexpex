@@ -1,4 +1,15 @@
 
+<a id='changelog-0.2.2'></a>
+# 0.2.2 — 2023-08-26
+
+## Added
+
+- Project logo to `README.md``.
+
+## Security
+
+- Updated project dependencies.
+
 <a id='changelog-0.2.1'></a>
 # 0.2.1 — 2022-12-19
 
