@@ -1,5 +1,5 @@
 <!-- PROJECT TITLE -->
-<h1 align="center">Hexpex</h1>
+<p align="center"><img src="https://raw.githubusercontent.com/solbero/hexpex/main/logo.png" /></p>
 
 <!-- PROJECT BLURB -->
 <p align="center">
