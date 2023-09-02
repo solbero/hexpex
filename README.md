@@ -8,11 +8,12 @@
 
 <!-- PROJECT SHIELDS -->
 <div align="center">
-  <a href="https://github.com/solbero/hexpex/actions/workflows/build.yaml/" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/build.yaml?branch=main&label=build" alt="Build action">
+  <a href="https://github.com/solbero/hexpex/actions/workflows/build.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/build.yaml?label=build" alt="Build action">
   </a>
-  <a href="https://github.com/solbero/hexpex/actions/workflows/publish.yaml/" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/publish.yaml?branch=main&label=publish" alt="Publish action">
+  <a href="https://github.com/solbero/hexpex/actions/workflows/publish.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/solbero/hexpex/publish.yaml?label=publish" alt="Publish action" >
+
   </a>
   <a href="https://app.codecov.io/gh/solbero/hexpex" target="_blank">
     <img src="https://img.shields.io/codecov/c/github/solbero/hexpex" alt="Code coverage">
