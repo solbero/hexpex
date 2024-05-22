@@ -1,5 +1,11 @@
 <!-- PROJECT TITLE -->
-<p align="center"><img src="https://raw.githubusercontent.com/solbero/hexpex/main/logo.png" /></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/solbero/hexpex/main/logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/solbero/hexpex/main/logo-light.png">
+    <img src="https://raw.githubusercontent.com/solbero/hexpex/main/logo-light.png" alt="Hexpex project logo" />
+  </picture>
+</p>
 
 <!-- PROJECT BLURB -->
 <p align="center">
