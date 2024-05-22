@@ -1,10 +1,16 @@
+<a id='changelog-0.2.3'></a>
+# 0.2.3 — 2024-05-22
+
+## Added
+
+- Light and dark theme project logos to `README.md`.
 
 <a id='changelog-0.2.2'></a>
 # 0.2.2 — 2023-08-26
 
 ## Added
 
-- Project logo to `README.md``.
+- Project logo to `README.md`.
 
 ## Security
 
