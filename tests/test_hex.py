@@ -14,7 +14,7 @@ from hexpex.hex import Move
 T = TypeVar("T")
 
 
-@pytest.fixture()
+@pytest.fixture
 def cube_ring_1():
     return [
         Cube(1, 0, -1),
@@ -26,7 +26,7 @@ def cube_ring_1():
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def cube_ring_2():
     return [
         Cube(2, 0, -2),
@@ -44,7 +44,7 @@ def cube_ring_2():
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def axial_ring_1():
     return [
         Axial(1, 0),
@@ -56,7 +56,7 @@ def axial_ring_1():
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def axial_ring_2():
     return [
         Axial(2, 0),
@@ -82,7 +82,7 @@ def reverse_ring(ring: Sequence[T]) -> list[T]:
     return reversed_ring
 
 
-@pytest.fixture()
+@pytest.fixture
 def cube_spiral(cube_ring_1, cube_ring_2):
     spiral = []
     spiral.append(Cube(0, 0, 0))
@@ -91,7 +91,7 @@ def cube_spiral(cube_ring_1, cube_ring_2):
     return spiral
 
 
-@pytest.fixture()
+@pytest.fixture
 def axial_spiral(axial_ring_1, axial_ring_2):
     spiral = []
     spiral.append(Axial(0, 0))
@@ -100,7 +100,7 @@ def axial_spiral(axial_ring_1, axial_ring_2):
     return spiral
 
 
-@pytest.fixture()
+@pytest.fixture
 def cube_spiral_reversed(cube_ring_1):
     reversed_spiral = []
     reversed_spiral.append(Cube(0, 0, 0))
@@ -108,7 +108,7 @@ def cube_spiral_reversed(cube_ring_1):
     return reversed_spiral
 
 
-@pytest.fixture()
+@pytest.fixture
 def axial_spiral_reversed(axial_ring_1):
     reversed_spiral = []
     reversed_spiral.append(Axial(0, 0))
